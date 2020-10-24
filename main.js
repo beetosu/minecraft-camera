@@ -27,12 +27,6 @@ function setUpCamera() {
 }
 
 function createBlocks() {
-  if (input.offsetWidth !== displaySize.width || input.offsetHeight !== displaySize.height) {
-		displaySize = {
-			width: input.offsetWidth,
-			height: input.offsetHeight
-		};
-	}
   canvasContext.clearRect(0,0,displaySize.width,displaySize.height);
   canvasContext.drawImage(video,0,0,displaySize.width,displaySize.height);
   for (let i = 0; i < displaySize.height; i=i+16) {
