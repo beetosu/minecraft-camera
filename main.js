@@ -5,12 +5,11 @@ let displaySize = {
 	width: input.offsetWidth,
 	height: input.offsetHeight
 };
-initialize();
+setUpCamera();
 
-function initialize() {
-  setUpCamera();
-  createBlocks();
-}
+setInterval(() => {
+	createBlocks();
+}, 100);
 
 function setUpCamera() {
   var video = document.querySelector("#videoPlayer");
