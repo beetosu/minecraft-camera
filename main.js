@@ -1,6 +1,7 @@
 const input = document.getElementById('videoPlayer');
 const canvas = document.getElementById('overlay')
 const canvasContext = canvas.getContext("2d");
+var video = document.querySelector("#videoPlayer");
 let displaySize = {
 	width: input.offsetWidth,
 	height: input.offsetHeight
@@ -12,7 +13,6 @@ setInterval(() => {
 }, 100);
 
 function setUpCamera() {
-  var video = document.querySelector("#videoPlayer");
   if (navigator.mediaDevices.getUserMedia) {
     navigator.mediaDevices.getUserMedia({ video: true })
     .then(function (stream) {
@@ -33,5 +33,5 @@ function createBlocks() {
 			height: input.offsetHeight
 		};
 	}
-  console.log(displaySize);
+  canvasContext.drawImage(video,0,0,displaySize.width,displaySize.height)
 }
