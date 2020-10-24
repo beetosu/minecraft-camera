@@ -34,7 +34,7 @@ function createBlocks() {
 		};
 	}
   canvasContext.clearRect(0,0,displaySize.height,displaySize.width);
-  canvasContext.drawImage(video,0,0,displaySize.height,displaySize.width);
+  canvasContext.drawImage(video,100,0,displaySize.height,displaySize.width);
   for (let i = 0; i < displaySize.height; i=i+16) {
     for (let p = 0; p < displaySize.width; p=p+16) {
       canvasContext.drawImage(getBlock(p,i),p,i,16,16);
