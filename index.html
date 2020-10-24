@@ -11,8 +11,7 @@
     	position: relative;
     	top: 0;
     	left: 0;
-      width: 640px;
-      height: 480px;
+
     }
     #container {
     	margin: 0px auto;
@@ -32,7 +31,7 @@
     <h1>Epik Gamer Cam</h1>
     <div id="video-container">
 			<video id="videoPlayer" autoplay="true" onload="startVid();"></video>
-      <canvas id="overlay"></canvas>
+      <canvas id="overlay" height="480" width="640"></canvas>
 			<div id="camera-denied">Access to your camera was denied, please enable or i will cri</div>
 	  </div>
   </div>
