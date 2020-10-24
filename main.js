@@ -33,6 +33,17 @@ function createBlocks() {
 			height: input.offsetHeight
 		};
 	}
-  ctx.clearRect(0,0,displaySize.height,displaySize.width);
-  canvasContext.drawImage(video,0,0,displaySize.height,displaySize.width)
+  canvasContext.clearRect(0,0,displaySize.height,displaySize.width);
+  canvasContext.drawImage(video,0,0,displaySize.height,displaySize.width);
+  for (let i = 0; i < displaySize.height; i=i+16) {
+    for (let p = 0; p < displaySize.width; p=p+16) {
+      canvasContext.drawImage(getBlock(p,i),p,i,16,16);
+    }
+  }
+}
+
+function getBlock(x, y) {
+  let image = new Image();
+  image.src = "textures/brick.png"
+  return image
 }
