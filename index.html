@@ -19,10 +19,18 @@
     	background-color: #666;
     }
   </style>
-
+</head>
+<body>
+  <div class="container">
+    <h1>Epik Gamer Cam</h1>
+    <div id="video-container">
+			<video id="videoPlayer" autoplay="true" onload="startVid();"></video>
+			<div id="camera-denied">Access to your camera was denied, please enable or i will cri</div>
+	</div>
   <script>
+    console.log("howdy")
     var video = document.querySelector("#videoPlayer");
-	console.log(video);
+  	console.log(video);
     if (navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices.getUserMedia({ video: true })
     .then(function (stream) {
@@ -33,13 +41,5 @@
     });
     }
   </script>
-</head>
-<body>
-  <div class="container">
-    <h1>Epik Gamer Cam</h1>
-    <div id="video-container">
-			<video id="videoPlayer" autoplay="true"></video>
-			<div id="camera-denied">Access to your camera was denied, please enable or i will cri</div>
-	</div>
-  </body>
+</body>
 </html>
