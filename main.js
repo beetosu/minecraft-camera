@@ -33,5 +33,6 @@ function createBlocks() {
 			height: input.offsetHeight
 		};
 	}
-  canvasContext.drawImage(video,0,0,displaySize.width,displaySize.height)
+  ctx.clearRect(0,0,displaySize.height,displaySize.width);
+  canvasContext.drawImage(video,0,0,displaySize.height,displaySize.width)
 }
