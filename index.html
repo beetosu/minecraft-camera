@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Minecraft Camera</title>
+	<meta name="description" content="you, but in like, minecraft" />
+  <script>
+    var video = document.querySelector("#camera-stream");
+
+    if (navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+    });
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Epik Gamer Cam</h1>
+    <div id="video-container">
+			<video id="camera-stream" autoplay playsinline></video>
+			<div id="camera-denied">Access to your camera was denied, please enable or i will cri</div>
+			<canvas id="overlay"></canvas>
+		</div>
+  </body>
+</html>
