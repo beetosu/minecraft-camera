@@ -1,4 +1,4 @@
-const input = document.getElementById('camera-stream');
+const input = document.getElementById('videoPlayer');
 const canvas = document.getElementById('overlay')
 const canvasContext = canvas.getContext("2d");
 let displaySize = {
