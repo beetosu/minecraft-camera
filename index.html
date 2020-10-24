@@ -27,19 +27,6 @@
 			<video id="videoPlayer" autoplay="true" onload="startVid();"></video>
 			<div id="camera-denied">Access to your camera was denied, please enable or i will cri</div>
 	</div>
-  <script>
-    console.log("howdy")
-    var video = document.querySelector("#videoPlayer");
-  	console.log(video);
-    if (navigator.mediaDevices.getUserMedia) {
-      navigator.mediaDevices.getUserMedia({ video: true })
-    .then(function (stream) {
-      video.srcObject = stream;
-    })
-    .catch(function (err0r) {
-      console.log("Something went wrong!");
-    });
-    }
-  </script>
+  <script type="text/javascript" src="main.js"></script>
 </body>
 </html>
