@@ -1,8 +1,8 @@
 const input = document.getElementById('videoPlayer');
 const canvas = document.getElementById('overlay');
 const canvasContext = canvas.getContext("2d");
-const canvasWidth = 640;
-const canvasHeight = 480;
+const canvasWidth = 1280;
+const canvasHeight = 480*2;
 const gridSize = 16;
 canvasContext.crossOrigin="anonymous";
 var video = document.querySelector("#videoPlayer");
@@ -28,7 +28,7 @@ function setUpCamera() {
 
 function createBlocks() {
   canvasContext.clearRect(0,0,canvasWidth,canvasHeight);
-  canvasContext.drawImage(video,0,0);
+  canvasContext.drawImage(video,0,0,1280,960);
   const colors = canvasContext.getImageData(0,0,canvasWidth,canvasHeight).data;
   for (let i = 0; i < canvasHeight; i=i+gridSize) {
     for (let p = 0; p < canvasWidth; p=p+gridSize) {
@@ -70,4 +70,4 @@ initialize();
 
 setInterval(() => {
 	createBlocks();
-}, 100);
+}, 25);
