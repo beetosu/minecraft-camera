@@ -63,10 +63,10 @@ function getBlock(x, y, data) {
 		img.src = "textures/cobblestone.png"
 	}
 	else if (avg.g > 80) {
-		img.src = "textures/bookshelf.png";
+		img.src = "textures/diamond_ore.png";
 	}
 	else {
-		img.src = "textures/diamond_ore.png"
+		img.src = "textures/bookshelf.png"
 	}
 	canvasContext.drawImage(img, x, y)
 }
