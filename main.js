@@ -36,12 +36,11 @@ function setUpCamera() {
 function createBlocks() {
   canvasContext.clearRect(0,0,640,480);
   canvasContext.drawImage(video,0,0);
-  const colors = canvasContext.getImageData(0,0,16,16).data;
+  const colors = canvasContext.getImageData(0,0,640,480).data;
   console.log(colors)
-  getBlock(0, 0, colors)
   for (let i = 0; i < 480; i=i+16) {
     for (let p = 0; p < 640; p=p+16) {
-      //getBlock(p,i,colors);
+      getBlock(p,i,colors);
     }
   }
 }
@@ -50,20 +49,24 @@ function createBlocks() {
 function getBlock(x, y, data) {
 	const avg = {r: 0, g: 0, b: 0};
 	for (let i = y; i < y+16; i++) {
-		for (let p = x; p < x+16; p++) {
-			avg.r += data[(i+(p*640))];
-		    avg.g += data[(i+(p*640))+1];
-		    avg.b += data[(i+(p*640))+2];
+		for (let p = x*4; p < (x+16)*4; p+=4) {
+			avg.r += data[p+(i*640*4)];
+		    avg.g += data[p+1+(i*640*4)];
+		    avg.b += data[p+2+(i*640*4)];
 		}
 	}
-  	avg.r = Math.floor( avg.r / 64 );
-	avg.g = Math.floor( avg.g / 64 );
-	avg.b = Math.floor( avg.b / 64 );
-	if (isNaN(avg.r)) {
-		console.log(x);
-		console.log(y);
-	}
+  	avg.r = Math.floor( avg.r / 256 );
+	avg.g = Math.floor( avg.g / 256 );
+	avg.b = Math.floor( avg.b / 256 );
 	const img = new Image();
-	img.src = "textures/brick0.png";
+	if (isNaN(avg.r)) {
+		img.src = "textures/cobblestone.png"
+	}
+	else if (avg.g > 80) {
+		img.src = "textures/bookshelf.png";
+	}
+	else {
+		img.src = "textures/diamond_ore.png"
+	}
 	canvasContext.drawImage(img, x, y)
 }
