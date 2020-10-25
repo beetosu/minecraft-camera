@@ -25,17 +25,26 @@ function setUpCamera() {
 function createBlocks() {
   canvasContext.clearRect(0,0,640,480);
   canvasContext.drawImage(video,0,0);
-  let colors = canvasContext.getImageData(0, 0, 640, 480);
   for (let i = 0; i < 480; i=i+16) {
     for (let p = 0; p < 640; p=p+16) {
-      canvasContext.drawImage(getBlock(p,i, colors),p,i,16,16);
+      canvasContext.drawImage(getBlock(p,i),p,i,16,16);
     }
   }
 }
 
 function getBlock(x, y, colors) {
-  let image = new Image();
-  console.log(colors[1])
+  const image = new Image();
+  const colors = canvasContext.getImageData(x, y, 16, 16).data;
+  const avg = {r: 0, g: 0, b: 0};
+  console.log(data.length / 4);
+  for(let i = 0; i < data.length; i += 4) {
+     average.r += data[i];
+     average.g += data[i+1];
+     average.b += data[i+2];
+  }
+  average.r = Math.floor( average.r / 64 );
+  average.g = Math.floor( average.g / 64 );
+  average.b = Math.floor( average.b / 64 );
   image.src = "textures/brick.png"
   return image
 }
