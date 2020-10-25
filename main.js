@@ -10,17 +10,6 @@ let imageGrid = []
 
 function initialize() {
   setUpCamera();
-  createGrid();
-}
-
-function createGrid() {
-  for (let y = 0; y > canvasHeight/gridSize; y++) {
-    imageGrid[y] = [];
-    for (let x = 0; x > canvasWidth/gridSize; x++) {
-      const img = new Image();
-      imageGrid[y].push(img);
-    }
-  }
 }
 
 function setUpCamera() {
@@ -66,7 +55,7 @@ function getBlock(x, y, data) {
   avg.r = Math.floor( avg.r / 256 );
 	avg.g = Math.floor( avg.g / 256 );
 	avg.b = Math.floor( avg.b / 256 );
-	const img = imageGrid[y/gridSize][x/gridSize];
+	const img = new Image();
 	let nearestBlock = blocks[0];
 	for (let block of blocks) {
 		if (colorDistance(avg, block.color) < colorDistance(avg, nearestBlock.color)) {
